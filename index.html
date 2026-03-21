@@ -940,6 +940,42 @@
         </div>
       </div>
 
+      <!-- NOT A FIT — NOT READY TO INVEST (has revenue, wrong mindset) -->
+      <div id="result-notfit-invest" class="result-card result-green" style="display:none;">
+        <div class="result-badge">💡 Honest Take</div>
+        <div class="result-heading">The Business Is Ready.<br><span class="accent" style="color:var(--ll-green)">The Timing Might Not Be.</span></div>
+        <div class="result-tagline">
+          Based on your answers, your business has real traction — but marketing only works when you're committed to the investment. If now isn't the right time, that's okay. Here's what we'd focus on in the meantime.
+        </div>
+        <div class="includes-section">
+          <div class="includes-label">While you're not ready to invest</div>
+          <ul class="includes-list">
+            <li class="includes-item">
+              <div class="includes-icon" style="background:rgba(93,202,73,0.20); color:var(--ll-green); width:22px; height:22px; font-size:0.7rem; font-weight:700;">1</div>
+              <div><strong style="color:#fff;">Lock in your referral system</strong> — if you're not asking every happy client for a referral and a Google review, you're leaving your easiest growth on the table</div>
+            </li>
+            <li class="includes-item">
+              <div class="includes-icon" style="background:rgba(93,202,73,0.20); color:var(--ll-green); width:22px; height:22px; font-size:0.7rem; font-weight:700;">2</div>
+              <div><strong style="color:#fff;">Optimize your Google Business Profile</strong> — free, takes a few hours, and it's often the difference between showing up and not showing up when someone searches your area</div>
+            </li>
+            <li class="includes-item">
+              <div class="includes-icon" style="background:rgba(93,202,73,0.20); color:var(--ll-green); width:22px; height:22px; font-size:0.7rem; font-weight:700;">3</div>
+              <div><strong style="color:#fff;">Know your numbers before you invest</strong> — what's your average job value? Close rate on leads? Once you know those, the ROI math on a marketing program becomes obvious</div>
+            </li>
+          </ul>
+        </div>
+        <div class="result-divider"></div>
+        <p style="font-size:0.95rem; color:rgba(255,255,255,0.65); line-height:1.65; margin-bottom:32px;">
+          When the timing is right, come back and take the quiz again. Operators at your revenue level typically see a strong ROI from our Growth or Authority programs — we'd love to work with you when you're ready to move.
+        </p>
+        <a href="https://lawnandlandmarketing.com/call" class="result-cta-primary" style="background: linear-gradient(135deg, var(--ll-green) 0%, #4ab83a 100%);">Talk to Us When You're Ready</a>
+        <a href="https://lawnandlandmarketing.com/free-resources" class="result-cta-secondary">Get the Free Starter Guide</a>
+        <div class="trust-strip">
+          <div class="trust-item">🌱 No pressure — ever</div>
+          <div class="trust-item">💬 The door's always open</div>
+        </div>
+      </div>
+
       <!-- NOT A FIT — WRONG INDUSTRY -->
       <div id="result-notfit-industry" class="result-card" style="display:none; border-color: rgba(255,255,255,0.12);">
         <div class="result-badge" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.50);">Not a Match</div>
@@ -1088,7 +1124,7 @@
       document.getElementById('progress-wrap').style.display = 'none';
 
       // Not-a-fit paths skip the capture form entirely — go straight to loading
-      const isNotAFit = pendingResult === 'notfit-early' || pendingResult === 'notfit-industry';
+      const isNotAFit = pendingResult === 'notfit-early' || pendingResult === 'notfit-industry' || pendingResult === 'notfit-invest';
       if (isNotAFit) {
         const loadingEl = document.getElementById('loading-screen');
         loadingEl.style.display = 'flex';
@@ -1223,7 +1259,7 @@
       resultScreen.classList.add('active');
 
       // Hide all
-      ['authority','growth','seed','notfit-early','notfit-industry'].forEach(r => {
+      ['authority','growth','seed','notfit-early','notfit-invest','notfit-industry'].forEach(r => {
         const el = document.getElementById('result-' + r);
         if (el) el.style.display = 'none';
       });
@@ -1238,10 +1274,10 @@
     }
 
     function computeResult() {
-      // Q8 investment: hard floor check first
-      if (answers[8] && answers[8].score === 'notfit_invest') return 'notfit-early';
+      // Q8 investment mindset: priorities issue — different page from revenue too-low
+      if (answers[8] && answers[8].score === 'notfit_invest') return 'notfit-invest';
 
-      // Q3 revenue: primary gate (absolute)
+      // Q3 revenue: primary gate (absolute) — under $100K = too early
       if (answers[3]) {
         const rev = answers[3].score;
         if (rev === 'notfit_revenue') return 'notfit-early';
