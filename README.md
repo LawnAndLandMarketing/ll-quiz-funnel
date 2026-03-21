@@ -2,161 +2,244 @@
 
 **Live URL:** https://ll-quiz-funnel.vercel.app  
 **Vercel Project:** `ll-quiz-funnel` (`prj_lTgU2rBSu8KIhyBWF8pNOoX9bM85`)  
-**Stack:** Pure HTML/CSS/JS — zero dependencies, zero build step
+**Stack:** Pure HTML/CSS/JS — zero dependencies, zero build step  
+**Version:** v2 — Revenue-First Routing (March 21, 2026)
 
 ---
 
 ## What This Is
 
-A quiz funnel that routes landscape business owners to one of four Lawn & Land Marketing programs based on their answers. Built on the "quiz funnel" psychology model — micro-commitments, belief seeding, objection pre-handling — adapted for a B2B service sale.
+A quiz funnel that routes landscape business owners to one of four Lawn & Land Marketing programs based on 8 questions. Built on quiz funnel psychology — micro-commitments, belief seeding, objection pre-handling — adapted for a B2B service sale to green industry operators.
 
-**The core insight:** Cold traffic sent directly to a "Book a Call" page converts at ~1-2%. Cold traffic that answers 8 questions first is no longer cold — they've invested, self-identified their pain, and are arriving at the offer already primed.
-
----
-
-## The 4 Results
-
-| Result | Trigger Profile | Program | CTA |
-|--------|----------------|---------|-----|
-| **Authority** | 3+ crews, $750K+ rev, running ads, $3.5K+/mo budget | $2,400/mo + $2,000 setup | Apply / Book Call |
-| **Growth** | 2 crews, $200K–$750K, inconsistent leads, $1.5–3.5K/mo | $1,200/mo + $1,500 setup | Apply / Book Call |
-| **Seed** | Solo–1 crew, $50K–$200K, no real web presence | Waitlist (price TBD) | Join Waitlist |
-| **Not a Fit** | Under $50K rev OR under $500/mo budget | Free resources + come back later | Free Starter Guide |
+**The core insight:** Cold traffic sent directly to "Book a Call" converts at ~1–2%. Traffic that answers 8 questions first is no longer cold — they've invested, self-identified their pain, and arrive at the offer already primed.
 
 ---
 
-## The 8 Questions
+## Program Definitions
 
-| # | Question | Purpose |
-|---|----------|---------|
-| 1 | How many trucks/crews? | Easy opener — zero cognitive load, starts the yes-chain |
-| 2 | Annual revenue? | Hard qualifier — under $50K flags "not a fit" |
-| 3 | #1 growth goal? | Aspirational — reveals intent and program fit |
-| 4 | Current website situation? | Diagnoses digital maturity |
-| 5 | Paid ads experience? | Authority/Growth differentiator |
-| 6 | Biggest marketing struggle? | Pain point resonance |
-| 7 | Monthly marketing budget? | Hard qualifier — under $500/mo flags "not a fit" |
-| 8 | Timeline / urgency? | Captured for sales context, doesn't affect result |
+| Program | Monthly | Setup | Target Profile |
+|---------|---------|-------|----------------|
+| **Authority** | $2,400/mo | $2,000 | $750K+ revenue, established operators ready to scale ads |
+| **Growth** | $1,200/mo | $1,500 | $200K–$750K revenue, need digital foundation before ads |
+| **Seed** | $697/mo | $997 | $100K–$200K revenue, solo/1-crew, need basics done right |
+| **Not a Fit** | — | — | Wrong industry, under $100K revenue, or unwilling to invest |
+
+### Authority — $2,400/mo + $2,000 Setup
+Flagship for established operators ready to scale ads. Target: $750K+ revenue.
+- Meta & Google Ads management (full campaign execution)
+- High-converting landing pages
+- CRM + pipeline automation via Service Area Expert
+- Monthly strategy calls + real-time reporting
+- Dedicated account manager
+- GBP optimization + local SEO
+
+### Growth — $1,200/mo + $1,500 Setup
+For operators who've proven their business but need a digital foundation. Target: $200K–$750K revenue.
+- Custom lead-generating website
+- CRM setup + lead tracking via Service Area Expert
+- GBP optimization + local SEO
+- Review generation system
+- Monthly reporting + strategy calls
+- Clear upgrade path to Authority
+
+### Seed — $697/mo + $997 Setup
+Entry-level for solo/1-crew operators. Operationally isolated from AM team. Target: $100K–$200K revenue.
+- AI-built professional website + hosting + maintenance
+- Service Area Expert CRM provisioned and configured
+- Automated GBP posting (AI-generated, scheduled)
+- LSA setup guidance + review request sequences
+- Self-serve knowledge base + community access
+- No dedicated AM, no custom strategy calls — ticket-based support only
+- **Graduation trigger:** $250K annual revenue run rate → Growth consultation call
+
+### Not a Fit
+**Three independent disqualifiers — any single trigger routes here:**
+1. **Wrong industry** — not in green industry (Q1, immediate exit)
+2. **Under $100K annual revenue** — $697/mo would exceed sustainable marketing spend ratio
+3. **Unwilling to invest** — self-selects "can't commit to monthly marketing investment"
+
+**Two distinct result pages:**
+- **Wrong industry** — clean exit, no free resources, respectful but clear
+- **Too early / not ready** — 3 free action steps, free starter guide, invitation to return at $100K+
 
 ---
 
-## Scoring Logic
+## Routing & Scoring Logic
 
-Each answer (Q1–Q7) casts a vote for: `authority`, `growth`, `seed`, or `notfit`.
+### The Hierarchy (Revenue-First)
 
-**Hard overrides (not-a-fit wins):**
-- 2+ `notfit` answers → route to Not a Fit
-- 1 `notfit` answer AND fewer than 2 `authority` or `growth` signals → Not a Fit
+| Priority | Signal | Role |
+|----------|--------|------|
+| Gate | Q1: Industry | Hard disqualifier — not green industry = immediate Not a Fit |
+| 1st | Q3: Revenue | **Primary gate** — $750K+ → Authority · $200K–$750K → Growth · $100K–$200K → Seed · Under $100K → Not a Fit |
+| 2nd | Q2: Crews | Supporting signal — reinforces revenue but **never overrides it** |
+| Floor | Q8: Investment | Disqualifier only — "can't commit" = Not a Fit. Otherwise does not change tier. |
+| Context | Q4–Q7 | Shape result page copy + personalization. Do NOT move routing. |
 
-**Otherwise:** Majority wins across authority / growth / seed.
+**Key principle:** Revenue determines the tier. Everything else is context.
+
+### Edge Case Routing
+
+| Scenario | Signals | Routes To | Rationale |
+|----------|---------|-----------|-----------|
+| Big company, small budget | 5 crews, $1.2M rev, $1,500/mo budget | **Authority** | Revenue and scale indicate Authority. Budget is a sales conversation — can scope to LSA or Meta-only. |
+| Small crew, big budget | 2 crews, $400K rev, $3,500+/mo budget | **Growth** | Revenue says Growth. High budget doesn't upgrade the tier. Result page highlights graduation path to Authority at $750K. |
+| Revenue/crew mismatch | Solo op, $800K rev | **Authority** | Revenue wins. Result page acknowledges growth stage and notes capacity assessment at onboarding. |
+| On the fence | 3 crews, $500K rev | **Growth** | Revenue is under $750K threshold. Crews support readiness but don't override. Growth with Authority upgrade messaging. |
+| Big company, no ad experience | 5 crews, $1M+ rev, never ran ads | **Authority** | Revenue wins. Result page copy reframes: acknowledges referral-driven success, positions ads as accelerator not gamble, addresses $1–2M referral ceiling. |
+
+### Scoring Code
 
 ```js
 function computeResult() {
-  const scores = { authority: 0, growth: 0, seed: 0, notfit: 0 };
-  for (let i = 1; i <= 7; i++) {
-    if (answers[i]) scores[answers[i].score]++;
+  // Q8: investment mindset floor
+  if (answers[8]?.score === 'notfit_invest') return 'notfit-early';
+
+  // Q3: revenue primary gate (absolute)
+  if (answers[3]) {
+    const rev = answers[3].score;
+    if (rev === 'notfit_revenue') return 'notfit-early';
+    if (rev === 'seed') return computeWithRevenue('seed');
+    if (rev === 'growth') return computeWithRevenue('growth');
+    if (rev === 'authority') return computeWithRevenue('authority');
   }
-  if (scores.notfit >= 2) return 'notfit';
-  if (scores.notfit === 1 && scores.authority < 2 && scores.growth < 2) return 'notfit';
-  return Object.entries(scores)
-    .filter(([k]) => k !== 'notfit')
-    .sort((a, b) => b[1] - a[1])[0][0];
+  return majorityVote(); // fallback
+}
+
+function computeWithRevenue(revTier) {
+  const crews = answers[2]?.score;
+  const adsExp = answers[6]?.meta;
+
+  // Solo + high revenue → still Authority (revenue wins)
+  if (revTier === 'authority' && crews === 'seed') return 'authority';
+
+  // 3+ crews + <$750K → Growth (revenue wins over crew count)
+  if (revTier === 'growth' && crews === 'authority') return 'growth';
+
+  return revTier; // standard
 }
 ```
 
 ---
 
-## UX Flow
+## The 8 Questions
 
-```
-Intro Screen
-    ↓ "Let's Find My Path"
-Q1 → Q2 → Q3 → Q4 → Q5 → Q6 → Q7 → Q8
-    ↓ "See My Results"
-Loading Screen (3.2s — social proof / testimonial displayed)
-    ↓
-Result Screen (Authority | Growth | Seed | Not a Fit)
-```
+| # | Question | Role |
+|---|----------|------|
+| **Q1** | Does your company provide outdoor/green industry services? | **Hard gate** — No = immediate Not a Fit (wrong industry) |
+| **Q2** | How many trucks/crews? | Low-friction opener, starts yes-chain. Supporting signal only. |
+| **Q3** | Annual revenue? | **Primary routing gate.** Under $100K = Not a Fit. Tier boundaries at $100K/$200K/$750K. |
+| **Q4** | #1 growth goal? | Aspirational — hits harder now that they're invested. Informs result page copy. |
+| **Q5** | Current website situation? | Diagnoses digital maturity. Context signal. |
+| **Q6** | Paid ads experience? | Authority/Growth context. Never-ran-ads + high revenue = personalized copy on Authority result. |
+| **Q7** | Biggest marketing struggle? | Pain point resonance. Echoed back on result page. |
+| **Q8** | Monthly investment commitment? | Hybrid mindset + dollar frame (Hormozi-inspired). "Can't commit" = Not a Fit. Otherwise doesn't override revenue. |
 
-- Back navigation works on all questions
-- Answers are preserved when navigating back
-- Progress bar updates per question
-- Smooth fade-in animations between steps
+### Q8 Investment Options (Hormozi framing)
+- "I can't commit to a monthly marketing investment right now" → **Not a Fit**
+- "$500–$1,000/mo — ready to build the foundation" → Seed signal
+- "$1,000–$2,500/mo — ready to grow consistently" → Growth signal
+- "$2,500+/mo — ready to dominate my market" → Authority signal
+
+---
+
+## Personalization (Live)
+
+Result pages adapt based on Q4 (goal) and Q6/Q7 answers:
+
+- **Authority + never-ran-ads + high revenue** → Reframes ads as accelerator, references $1–2M referral ceiling, emphasizes transparent ROI
+- **Authority + solo-op + high revenue** → Acknowledges efficient operation, notes capacity assessment at onboarding
+- **Growth + high budget** → Highlights fast-track graduation path to Authority at $750K
+- **Standard** → Goal and struggle echoed back in personalization callout block
+
+---
+
+## Build Roadmap
+
+### Sprint 1 — Lead Capture + Webhook (NEXT — highest pipeline impact)
+- [ ] Email capture gate before results screen ("Where should we send your growth plan?")
+- [ ] N8N webhook fires on submit: email, all 8 answers, computed result, timestamp
+- [ ] Route lead to correct ClickUp list based on program result
+- [ ] Tag contact in GHL (Service Area Expert) with quiz result + key answers
+- [ ] Trigger automated follow-up sequence per program path
+
+### Sprint 2 ✅ Done — Scoring Logic (v2)
+- [x] Revenue-first routing hierarchy (replaces equal-weight majority vote)
+- [x] Q1 industry gate with immediate Not-a-Fit exit
+- [x] Q3 revenue as primary gate ($100K/$200K/$750K thresholds)
+- [x] Q2 crews as supporting signal (never overrides revenue)
+- [x] Q8 investment as floor-only gate with hybrid mindset/dollar frame
+- [x] All 5 edge cases wired in with correct routing
+- [x] Two distinct Not-a-Fit result page variants
+- [x] Personalization callouts on Authority + Growth result pages
+
+### Sprint 3 — Conversion Optimization
+- [ ] Per-question drop-off tracking (analytics instrumentation)
+- [ ] Breather / social proof slide after Q4 (midpoint fatigue point)
+- [ ] Urgency / scarcity element before loading screen
+- [ ] Richer personalization: echo Q7 struggle verbatim in result headline
+
+### Sprint 4 — Retargeting Data Play
+- [ ] Segment quiz non-buyers into Meta Custom Audiences by Q7 (struggle) + Q4 (goal)
+- [ ] Build "didn't finish quiz" retargeting audience separately
+- [ ] Run retargeting ads matched to stated pain
+
+### Open Questions
+- [ ] Seed: tech stack for automated GBP posting at scale (Roshi/n8n/GHL feasibility)
+- [ ] Seed: community format — Facebook group vs. channel inside Service Area Expert
+- [ ] Whether to add residential/commercial question for result page personalization
+- [ ] Seed waitlist mechanics and controlled rollout plan
+- [ ] Whether monthly AI performance snapshot email should be added to Seed (low effort, high perceived value)
+- [ ] Wire real CTA URLs (apply page, book-a-call, seed waitlist, free resources)
+- [ ] Real client testimonials for loading screen
 
 ---
 
 ## Design System
 
 Follows the **L&L Digital UI Standard** exactly:
-
 - **Background:** `#040a04` (near-black, green-tinted)
 - **Accents:** L&L Lime `#ACE71D` + L&L Green `#5DCA49`
 - **Depth layers:** SVG grain overlay (3.5% opacity) + radial ambient glow
 - **Cards:** Glass morphism — `rgba(255,255,255,0.04)` fill, `backdrop-filter: blur(12px)`, green-tinted border
 - **Typography:** Rethink Sans 800 Italic (headings) + Inter (body)
-- **Buttons:** Lime-to-green gradient (primary), ghost green (secondary)
 
 ---
 
-## TODO / Build Out
+## Context for Claude (when building out)
 
-### Immediate
-- [ ] Wire real CTA URLs (apply page, book-a-call, seed waitlist, free resources)
-- [ ] Set Seed Program price point when locked in
-- [ ] Add real client testimonials to loading screen
+**What Lawn & Land Marketing does:**
+Digital marketing agency exclusively for lawn & landscape companies. ~54 clients, ~$88K MRR, 97% retention, $3M+ ad spend managed (95% Meta). Green industry only — they turn away anyone outside it.
 
-### Phase 2 — Conditional Logic Enhancements
-- [ ] Add tie-breaking logic (what happens when authority == growth == 2?)
-- [ ] Weight Q2 (revenue) and Q7 (budget) more heavily — they're the strongest signals
-- [ ] Add "edge case" routing: e.g., 3+ crews but budget under $1.5K → Growth not Authority
-- [ ] Consider adding Q9: "What type of work do you primarily do?" (residential / commercial / both) — affects which program angle to lead with on the result page
+**The three programs:**
+- **Authority** ($2,400/mo + $2K setup) — Full Meta/Google ad management, landing pages, CRM, dedicated AM. For established operators ready to scale.
+- **Growth** ($1,200/mo + $1.5K setup) — Website + local SEO + CRM + reviews. For operators who need a real digital foundation before running ads.
+- **Seed** ($697/mo + $997 setup) — AI website + hosting + automated GBP posting + LSA guidance + Service Area Expert CRM. Self-serve model, no dedicated AM, ticket-based support. For solo/1-crew operators $100K–$200K revenue. Graduation to Growth at $250K run rate.
 
-### Phase 3 — Lead Capture
-- [ ] Add email capture before showing results ("Where should we send your growth plan?")
-- [ ] Connect to N8N webhook → route lead to correct ClickUp list based on result
-- [ ] Tag contact in GHL CRM with quiz result + answers
-- [ ] Trigger automated follow-up sequence per program path
+**Routing philosophy:**
+Revenue is the single strongest signal. Crew size is supporting context. Budget is a mindset floor only — it can disqualify but can't upgrade a tier. Industry is an absolute gate. Questions Q4–Q7 inform messaging and personalization, not routing.
 
-### Phase 4 — Optimization
-- [ ] A/B test question order (currently: easy opener → revenue → goal → website → ads → struggle → budget → urgency)
-- [ ] Track per-question drop-off (instrument with analytics)
-- [ ] Add "breather" slide with social proof after Q4 (per quiz funnel best practice)
-- [ ] Add urgency/scarcity element after Q8 before loading screen
+**The target customer:**
+Landscape business owners. Hands-on operators, not marketers. They respond to direct, no-fluff language. They care about leads, jobs booked, and ROI — not impressions or brand awareness.
 
-### Phase 5 — Personalization
-- [ ] Personalize result page headline with their answer from Q3 (their stated goal)
-- [ ] Surface back their biggest struggle (Q6 answer) in the result copy
-- [ ] Segment retargeting ads based on quiz answers (Meta Custom Audiences)
+**Quiz psychology applied:**
+1. Industry gate first — protects the funnel from irrelevant leads immediately
+2. Low-friction opener (crews) — dead easy, starts the yes-chain
+3. Revenue gate early (Q3) — primary qualifier, sets the tier
+4. Aspirational question (Q4) after they're clicking — hits harder when invested
+5. Loading screen = captive attention — best testimonial goes here
+6. Result page = personalized recommendation, not a sales pitch
+7. Investment question uses Hormozi framing — not a budget question, a commitment question
 
----
-
-## File Structure
-
-```
-ll-quiz-funnel/
-├── index.html        # The entire quiz — single self-contained file
-└── README.md         # This file
-```
-
-No build process. No dependencies. Edit `index.html` and deploy.
+**Brand voice:** Direct, confident, green industry native. Never fluffy. "We know your world" energy. "Leads, jobs booked, ROI" language only.
 
 ---
 
 ## Deployment
 
-**Vercel (current):**
-```bash
-# Deploy to production
-vercel deploy --prod
-```
-
-Or push to this repo — connect to Vercel for auto-deploys.
-
-**Manual API deploy (what Kai uses):**
 ```bash
 VERCEL_TOKEN="your_token"
 TEAM_ID="team_sPQaPdEOVQaR42djHV2cTm51"
-
 HTML_B64=$(base64 -i index.html | tr -d '\n')
 
 curl -X POST "https://api.vercel.com/v13/deployments?teamId=${TEAM_ID}" \
@@ -169,27 +252,3 @@ curl -X POST "https://api.vercel.com/v13/deployments?teamId=${TEAM_ID}" \
     \"projectSettings\": {\"framework\": null}
   }"
 ```
-
----
-
-## Context for Claude (when building out)
-
-**What Lawn & Land Marketing does:**  
-Digital marketing agency exclusively for lawn & landscape companies ($750K–$8M revenue). ~54 clients, ~$88K MRR, 97% retention, $3M+ ad spend managed (95% Meta).
-
-**The three programs:**
-- **Authority** ($2,400/mo + $2K setup) — Full Meta/Google ad management, landing pages, CRM, dedicated AM. For established operators ready to scale.
-- **Growth** ($1,200/mo + $1.5K setup) — Website + local SEO + CRM + reviews. For operators who need a real digital foundation before running ads.
-- **Seed** (price TBD) — AI website + hosting + LSA management guidance + Service Area Expert CRM. For new/small operators who need the basics done right.
-
-**The target customer:**  
-Landscape business owners. Hands-on operators, not marketers. They respond to direct, no-fluff language. "Dominate your market" > "achieve digital growth synergies". They care about leads, jobs booked, and ROI — not impressions or brand awareness.
-
-**The quiz psychology being applied:**
-1. Low-friction opener (crews = dead easy to answer)
-2. Hard qualifiers early (revenue Q2, budget Q7) to protect sales team's time
-3. Aspirational question (Q3) comes after they're already clicking — hits harder when they're invested
-4. Loading screen = captive attention — use for best testimonial
-5. Result page = personalized recommendation, not a sales pitch — they arrived at this conclusion themselves
-
-**Brand voice:** Direct, confident, green industry native. Never fluffy. "We know your world" energy.
