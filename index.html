@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Your Growth Path — Lawn & Land Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ll-lime: #ACE71D;
+      --ll-green: #5DCA49;
+      --ll-green-dark: #16a34a;
+      --ll-forest: #14532d;
+      --bg-base: #040a04;
+      --bg-surface: rgba(255, 255, 255, 0.04);
+      --bg-surface-hover: rgba(255, 255, 255, 0.07);
+      --border-card: rgba(20, 83, 45, 0.30);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.65);
+      --text-muted: rgba(255, 255, 255, 0.35);
+      --text-accent: #ACE71D;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* GRAIN */
+    .grain-overlay {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat; background-size: 256px 256px;
+    }
+
+    /* GLOW */
+    .ambient-glow {
+      position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(22,163,74,0.10) 0%, rgba(22,163,74,0.04) 40%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .ambient-glow-bottom {
+      position: fixed; bottom: -10%; left: 30%;
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse at center, rgba(172,231,29,0.05) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* CONTENT ROOT */
+    .content-root {
+      position: relative; z-index: 10;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 48px 24px 80px;
+    }
+
+    /* LOGO / NAV */
+    .logo-bar {
+      width: 100%; max-width: 680px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 48px;
+    }
+    .logo-text {
+      font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      font-size: 1.25rem; color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .logo-text span { color: var(--ll-lime); }
+
+    /* PROGRESS BAR */
+    .progress-wrap {
+      width: 100%; max-width: 680px;
+      margin-bottom: 40px;
+    }
+    .progress-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px;
+    }
+    .progress-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.10em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+    }
+    .progress-count {
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--ll-lime);
+    }
+    .progress-track {
+      height: 4px; border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--ll-lime), var(--ll-green));
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* CARD */
+    .quiz-card {
+      width: 100%; max-width: 680px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 48px 48px 40px;
+      transition: opacity 0.3s ease;
+    }
+
+    .question-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(172,231,29,0.08); border: 1px solid rgba(172,231,29,0.20);
+      border-radius: 999px; padding: 5px 14px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ll-lime);
+      margin-bottom: 20px;
+    }
+
+    .question-text {
+      font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      line-height: 1.2; color: #fff;
+      margin-bottom: 32px;
+    }
+
+    /* OPTIONS */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .options-grid.two-col { grid-template-columns: 1fr 1fr; }
+
+    .option-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      text-align: left;
+    }
+    .option-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(172,231,29,0.30);
+      transform: translateY(-1px);
+    }
+    .option-btn.selected {
+      background: rgba(172,231,29,0.10);
+      border-color: rgba(172,231,29,0.55);
+    }
+    .option-indicator {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.20);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .option-btn.selected .option-indicator {
+      border-color: var(--ll-lime);
+      background: var(--ll-lime);
+    }
+    .option-indicator-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--bg-base);
+      display: none;
+    }
+    .option-btn.selected .option-indicator-dot { display: block; }
+    .option-label {
+      font-size: 0.95rem; font-weight: 500;
+      color: rgba(255,255,255,0.85); line-height: 1.4;
+    }
+    .option-btn.selected .option-label { color: #fff; }
+
+    /* NAVIGATION */
+    .quiz-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 36px;
+    }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 8px; padding: 10px 18px;
+      color: rgba(255,255,255,0.50); font-size: 0.875rem;
+      font-weight: 500; cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-back:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .btn-back:disabled { opacity: 0; pointer-events: none; }
+
+    .btn-next {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--ll-lime) 0%, var(--ll-green) 100%);
+      color: var(--bg-base); font-size: 0.9rem; font-weight: 700;
+      border: none; border-radius: 8px; padding: 12px 28px;
+      cursor: pointer; transition: opacity 0.15s, transform 0.15s;
+    }
+    .btn-next:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-next:disabled { opacity: 0.35; pointer-events: none; }
+    .btn-next .arrow { font-size: 1rem; transition: transform 0.15s; }
+    .btn-next:hover .arrow { transform: translateX(3px); }
+
+    /* LOADING SCREEN */
+    #loading-screen {
+      display: none;
+      width: 100%; max-width: 680px;
+      text-align: center; padding: 48px 24px;
+    }
+    #loading-screen.active { display: flex; flex-direction: column; align-items: center; }
+
+    .loader-ring {
+      width: 64px; height: 64px; margin-bottom: 32px;
+      border: 3px solid rgba(255,255,255,0.08);
+      border-top-color: var(--ll-lime);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-title {
+      font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      font-size: 1.5rem; margin-bottom: 12px; color: #fff;
+    }
+    .loading-sub { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 40px; }
+
+    /* Social proof on loading screen */
+    .social-proof-card {
+      width: 100%; max-width: 480px;
+      background: rgba(172,231,29,0.06);
+      border: 1px solid rgba(172,231,29,0.20);
+      border-radius: 12px; padding: 24px 28px;
+      text-align: left; margin-bottom: 24px;
+    }
+    .social-proof-quote {
+      font-size: 1rem; font-style: italic;
+      color: rgba(255,255,255,0.85); line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .social-proof-author {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--ll-lime); text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .social-proof-stat {
+      font-size: 2rem; font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      color: var(--ll-lime); text-align: center; margin-bottom: 8px;
+    }
+    .social-proof-stat-label {
+      font-size: 0.85rem; color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* RESULT SCREEN */
+    #result-screen {
+      display: none;
+      width: 100%; max-width: 720px;
+    }
+    #result-screen.active { display: block; }
+
+    .result-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-card);
+      border-radius: 20px; padding: 56px 56px 48px;
+    }
+    .result-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(172,231,29,0.10); border: 1px solid rgba(172,231,29,0.30);
+      border-radius: 999px; padding: 6px 18px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ll-lime);
+      margin-bottom: 24px;
+    }
+    .result-heading {
+      font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.1; color: #fff; margin-bottom: 16px;
+    }
+    .result-heading .accent { color: var(--ll-lime); }
+    .result-tagline {
+      font-size: 1.05rem; color: var(--text-secondary);
+      line-height: 1.65; margin-bottom: 40px;
+      max-width: 560px;
+    }
+
+    /* Includes list */
+    .includes-section { margin-bottom: 36px; }
+    .includes-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+    }
+    .includes-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .includes-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.95rem; color: rgba(255,255,255,0.80);
+    }
+    .includes-icon {
+      flex-shrink: 0; margin-top: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(172,231,29,0.20);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; color: var(--ll-lime);
+    }
+
+    /* Divider */
+    .result-divider {
+      height: 1px; background: rgba(255,255,255,0.07);
+      margin: 36px 0;
+    }
+
+    /* Price tag */
+    .price-block { margin-bottom: 36px; }
+    .price-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
+    }
+    .price-row { display: flex; align-items: baseline; gap: 10px; }
+    .price-amount {
+      font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      font-size: 2.25rem; color: #fff;
+    }
+    .price-period { font-size: 0.95rem; color: var(--text-secondary); }
+    .price-setup { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 4px; }
+
+    /* CTAs */
+    .result-cta-primary {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%;
+      background: linear-gradient(135deg, var(--ll-lime) 0%, var(--ll-green) 100%);
+      color: var(--bg-base); font-size: 1rem; font-weight: 700;
+      border: none; border-radius: 10px; padding: 16px 32px;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+      margin-bottom: 14px;
+    }
+    .result-cta-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+    .result-cta-secondary {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      background: transparent; border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 14px 32px;
+      color: rgba(255,255,255,0.60); font-size: 0.9rem; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .result-cta-secondary:hover { background: rgba(255,255,255,0.06); color: #fff; }
+
+    /* Trust strip */
+    .trust-strip {
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; flex-wrap: wrap;
+      margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.35);
+    }
+    .trust-icon { font-size: 0.9rem; }
+
+    /* Not a fit result */
+    .result-softer .result-heading .accent { color: var(--ll-green); }
+    .result-softer .result-badge { border-color: rgba(93,202,73,0.30); color: var(--ll-green); background: rgba(93,202,73,0.08); }
+    .result-softer .result-cta-primary { background: linear-gradient(135deg, var(--ll-green) 0%, #4ab83a 100%); }
+
+    /* TRANSITIONS */
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+
+    .fade-in {
+      animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+    ::-webkit-scrollbar-thumb { background: rgba(22,163,74,0.30); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(22,163,74,0.50); }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .quiz-card { padding: 32px 24px 28px; }
+      .result-card { padding: 36px 24px 32px; }
+      .options-grid.two-col { grid-template-columns: 1fr; }
+      .trust-strip { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="ambient-glow-bottom" aria-hidden="true"></div>
+
+  <div class="content-root">
+
+    <!-- LOGO -->
+    <div class="logo-bar">
+      <div class="logo-text">Lawn <span>&</span> Land Marketing</div>
+    </div>
+
+    <!-- PROGRESS BAR (hidden on intro) -->
+    <div class="progress-wrap" id="progress-wrap" style="display:none;">
+      <div class="progress-meta">
+        <span class="progress-label">Your Growth Path</span>
+        <span class="progress-count" id="progress-count">1 of 8</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:12.5%"></div>
+      </div>
+    </div>
+
+    <!-- INTRO STEP -->
+    <div class="quiz-step active fade-in" id="step-intro">
+      <div class="quiz-card" style="text-align:center; padding: 64px 48px 56px;">
+        <div class="question-eyebrow" style="margin: 0 auto 24px;">
+          <span>🌱</span> 2-Minute Quiz
+        </div>
+        <h1 style="font-family:'Rethink Sans',sans-serif; font-weight:800; font-style:italic; font-size:clamp(2rem,5vw,2.8rem); line-height:1.1; margin-bottom:16px; color:#fff;">
+          Find Your <span style="color:var(--ll-lime)">Growth Path</span><br>in 8 Questions
+        </h1>
+        <p style="font-size:1rem; color:rgba(255,255,255,0.60); max-width:480px; margin:0 auto 40px; line-height:1.65;">
+          Tell us where your landscape business is today — we'll show you exactly which program gets you to the next level.
+        </p>
+        <button class="btn-next" style="margin: 0 auto; font-size:1rem; padding:14px 36px;" onclick="startQuiz()">
+          Let's Find My Path <span class="arrow">→</span>
+        </button>
+        <p style="margin-top:20px; font-size:0.78rem; color:rgba(255,255,255,0.28);">No pressure. No obligation. Takes about 2 minutes.</p>
+      </div>
+    </div>
+
+    <!-- QUIZ STEPS (Q1–Q8) -->
+    <!-- Q1: Business size (easy opener) -->
+    <div class="quiz-step" id="step-1">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 1 of 8</div>
+        <div class="question-text">How many trucks or crews does your business run?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 1, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Just me — solo op or 1 crew</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 1, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">2 crews</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 1, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">3–5 crews</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 1, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">6+ crews — we're scaling fast</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" disabled onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-1" disabled onclick="goNext(1)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2: Revenue -->
+    <div class="quiz-step" id="step-2">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 2 of 8</div>
+        <div class="question-text">What's your annual revenue right now?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 2, 'notfit')" data-score="notfit">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Under $50K — just getting started</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 2, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">$50K–$200K</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 2, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">$200K–$750K</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 2, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">$750K+ and climbing</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-2" disabled onclick="goNext(2)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3: Biggest goal (aspirational turn) -->
+    <div class="quiz-step" id="step-3">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 3 of 8</div>
+        <div class="question-text">What's your #1 growth goal for the next 12 months?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 3, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Get found online and start generating leads consistently</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 3, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Build a real online presence and start running paid ads</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 3, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Scale revenue with a predictable lead machine</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 3, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Dominate my market and own my service area</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-3" disabled onclick="goNext(3)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4: Current website -->
+    <div class="quiz-step" id="step-4">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 4 of 8</div>
+        <div class="question-text">What's your current website situation?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 4, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">No website yet — or just a Facebook page</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 4, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">I have something but it's outdated and doesn't convert</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 4, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Decent site but not built for lead gen</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 4, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Solid website that generates leads consistently</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-4" disabled onclick="goNext(4)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5: Paid ads experience -->
+    <div class="quiz-step" id="step-5">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 5 of 8</div>
+        <div class="question-text">Have you ever run paid ads (Google, Meta/Facebook)?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 5, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">No — never tried it</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 5, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Tried a little but didn't see results</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 5, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Running some ads but need better results</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 5, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Running ads and ready to scale the spend</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-5" disabled onclick="goNext(5)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6: Biggest struggle -->
+    <div class="quiz-step" id="step-6">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 6 of 8</div>
+        <div class="question-text">What's your biggest marketing struggle right now?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 6, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Customers can't even find me online</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 6, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">I get some leads but they're inconsistent</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 6, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">I need more volume — the business can handle it</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 6, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">I'm competing against bigger companies and losing on visibility</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-6" disabled onclick="goNext(6)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7: Marketing budget -->
+    <div class="quiz-step" id="step-7">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 7 of 8</div>
+        <div class="question-text">What's your monthly marketing budget (or what are you comfortable investing)?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 7, 'notfit')" data-score="notfit">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Under $500/mo — very tight right now</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 7, 'seed')" data-score="seed">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">$500–$1,500/mo</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 7, 'growth')" data-score="growth">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">$1,500–$3,500/mo</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 7, 'authority')" data-score="authority">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">$3,500+/mo — I invest when I see results</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-7" disabled onclick="goNext(7)">Continue <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8: Timeline / urgency -->
+    <div class="quiz-step" id="step-8">
+      <div class="quiz-card fade-in">
+        <div class="question-eyebrow">Question 8 of 8</div>
+        <div class="question-text">How soon are you looking to make a move?</div>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 8, 'fast')" data-score="fast">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">ASAP — season is coming and I need leads now</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 8, 'soon')" data-score="soon">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Next 30–60 days</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 8, 'planning')" data-score="planning">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Just planning ahead — 3–6 months</span>
+          </button>
+          <button class="option-btn" onclick="selectOption(this, 8, 'notready')" data-score="notready">
+            <div class="option-indicator"><div class="option-indicator-dot"></div></div>
+            <span class="option-label">Not ready yet — still exploring</span>
+          </button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn-next" id="next-8" disabled onclick="showResults()">See My Results <span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+      <div class="loader-ring"></div>
+      <div class="loading-title">Analyzing Your Answers…</div>
+      <div class="loading-sub">Building your custom growth path</div>
+      <div class="social-proof-card">
+        <div class="social-proof-quote">"We went from barely getting any leads online to having more work than we could handle in one season. The system just works."</div>
+        <div class="social-proof-author">— Chris M., Olson Outdoors</div>
+      </div>
+      <div>
+        <div class="social-proof-stat">97%</div>
+        <div class="social-proof-stat-label">Client retention rate across all programs</div>
+      </div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="result-screen">
+
+      <!-- AUTHORITY RESULT -->
+      <div id="result-authority" class="result-card" style="display:none;">
+        <div class="result-badge">⚡ Your Match</div>
+        <div class="result-heading">You're Ready for the<br><span class="accent">Authority Program</span></div>
+        <div class="result-tagline">
+          You've built a real business — now it's time to dominate your market. The Authority Program is our flagship, built for established landscape companies ready to run paid ads at scale and own their service area.
+        </div>
+        <div class="includes-section">
+          <div class="includes-label">What's included</div>
+          <ul class="includes-list">
+            <li class="includes-item"><div class="includes-icon">✓</div>Meta & Google Ads management (we run the campaigns)</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>High-converting landing pages built for your market</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Full CRM + pipeline automation via Service Area Expert</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Monthly strategy calls + real-time reporting</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Dedicated account manager who knows your business</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>GBP optimization + local SEO foundation</li>
+          </ul>
+        </div>
+        <div class="result-divider"></div>
+        <div class="price-block">
+          <div class="price-label">Investment</div>
+          <div class="price-row">
+            <div class="price-amount">$2,400</div>
+            <div class="price-period">/month</div>
+          </div>
+          <div class="price-setup">+ $2,000 one-time setup fee</div>
+        </div>
+        <a href="https://lawnandlandmarketing.com/apply" class="result-cta-primary">
+          Apply for Authority Program →
+        </a>
+        <a href="https://lawnandlandmarketing.com/call" class="result-cta-secondary">
+          Book a Strategy Call First
+        </a>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-icon">🌱</span> Green Industry Specialists</div>
+          <div class="trust-item"><span class="trust-icon">⭐</span> 97% Client Retention</div>
+          <div class="trust-item"><span class="trust-icon">📍</span> $3M+ Ad Spend Managed</div>
+        </div>
+      </div>
+
+      <!-- GROWTH RESULT -->
+      <div id="result-growth" class="result-card" style="display:none;">
+        <div class="result-badge">🚀 Your Match</div>
+        <div class="result-heading">You're Ready for the<br><span class="accent">Growth Program</span></div>
+        <div class="result-tagline">
+          You've proven your business works — now let's build the marketing foundation that turns it into a real lead machine. The Growth Program is built for landscape companies ready to invest in a professional web presence and start winning online.
+        </div>
+        <div class="includes-section">
+          <div class="includes-label">What's included</div>
+          <ul class="includes-list">
+            <li class="includes-item"><div class="includes-icon">✓</div>Custom lead-generating website (built for your market)</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>CRM setup + lead tracking via Service Area Expert</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>GBP optimization + local SEO to get found organically</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Review generation system to build social proof</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Monthly reporting + strategy calls</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Clear upgrade path to Authority when you're ready to scale ads</li>
+          </ul>
+        </div>
+        <div class="result-divider"></div>
+        <div class="price-block">
+          <div class="price-label">Investment</div>
+          <div class="price-row">
+            <div class="price-amount">$1,200</div>
+            <div class="price-period">/month</div>
+          </div>
+          <div class="price-setup">+ $1,500 one-time setup fee</div>
+        </div>
+        <a href="https://lawnandlandmarketing.com/apply" class="result-cta-primary">
+          Apply for Growth Program →
+        </a>
+        <a href="https://lawnandlandmarketing.com/call" class="result-cta-secondary">
+          Book a Strategy Call First
+        </a>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-icon">🌱</span> Green Industry Specialists</div>
+          <div class="trust-item"><span class="trust-icon">⭐</span> 97% Client Retention</div>
+          <div class="trust-item"><span class="trust-icon">📍</span> 54+ Active Clients</div>
+        </div>
+      </div>
+
+      <!-- SEED RESULT -->
+      <div id="result-seed" class="result-card" style="display:none;">
+        <div class="result-badge">🌱 Your Match</div>
+        <div class="result-heading">Start Strong with the<br><span class="accent">Seed Program</span></div>
+        <div class="result-tagline">
+          Every big landscape company started exactly where you are. The Seed Program gives you the digital foundation — a professional website, online visibility, and the tools to turn your hustle into real, consistent leads.
+        </div>
+        <div class="includes-section">
+          <div class="includes-label">What's included</div>
+          <ul class="includes-list">
+            <li class="includes-item"><div class="includes-icon">✓</div>AI-built professional website — live fast, looks legit</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Website hosting included (no extra setup headaches)</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>LSA (Local Service Ads) setup & management guidance</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Service Area Expert CRM — manage leads, follow-ups, and jobs</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>GBP (Google Business Profile) optimization walkthrough</li>
+            <li class="includes-item"><div class="includes-icon">✓</div>Built-in growth path — easy upgrade when you're ready to scale</li>
+          </ul>
+        </div>
+        <div class="result-divider"></div>
+        <div class="price-block">
+          <div class="price-label">Investment</div>
+          <div class="price-row">
+            <div class="price-amount">Coming Soon</div>
+          </div>
+          <div class="price-setup">Affordable flat monthly — join the waitlist to be first in line</div>
+        </div>
+        <a href="https://lawnandlandmarketing.com/seed-waitlist" class="result-cta-primary">
+          Join the Seed Program Waitlist →
+        </a>
+        <a href="https://lawnandlandmarketing.com/call" class="result-cta-secondary">
+          Talk to Someone First
+        </a>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-icon">🌱</span> Built for New Operators</div>
+          <div class="trust-item"><span class="trust-icon">⭐</span> Green Industry Only</div>
+          <div class="trust-item"><span class="trust-icon">🚀</span> Scale When You're Ready</div>
+        </div>
+      </div>
+
+      <!-- NOT A FIT RESULT -->
+      <div id="result-notfit" class="result-card result-softer" style="display:none;">
+        <div class="result-badge">💡 Honest Take</div>
+        <div class="result-heading">Let's Set You Up<br><span class="accent">for Success First</span></div>
+        <div class="result-tagline">
+          Based on your answers, you're in the very early stages — and that's completely fine. The truth is, investing in marketing right now won't move the needle the way you need it to. Here's what will.
+        </div>
+        <div class="includes-section">
+          <div class="includes-label">Your next 3 moves (free)</div>
+          <ul class="includes-list">
+            <li class="includes-item"><div class="includes-icon" style="background:rgba(93,202,73,0.20); color:var(--ll-green);">1</div>Claim and fully optimize your Google Business Profile — it's free and drives real local visibility</li>
+            <li class="includes-item"><div class="includes-icon" style="background:rgba(93,202,73,0.20); color:var(--ll-green);">2</div>Get your first 10 Google reviews — ask every happy customer personally</li>
+            <li class="includes-item"><div class="includes-icon" style="background:rgba(93,202,73,0.20); color:var(--ll-green);">3</div>Apply to Google's Local Service Ads (LSA) — you pay per lead, no monthly fee</li>
+          </ul>
+        </div>
+        <div class="result-divider"></div>
+        <p style="font-size:0.95rem; color:rgba(255,255,255,0.65); line-height:1.65; margin-bottom:32px;">
+          Once you're generating $50K+ and have consistent work coming in, you'll be in the perfect position for our Seed Program. We'd love to work with you when the time is right.
+        </p>
+        <a href="https://lawnandlandmarketing.com/free-resources" class="result-cta-primary" style="background: linear-gradient(135deg, var(--ll-green) 0%, #4ab83a 100%);">
+          Get the Free Starter Guide →
+        </a>
+        <a href="https://lawnandlandmarketing.com/call" class="result-cta-secondary">
+          Ask Us a Quick Question
+        </a>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-icon">🌱</span> We root for every operator</div>
+          <div class="trust-item"><span class="trust-icon">💬</span> No hard sell — ever</div>
+        </div>
+      </div>
+
+    </div><!-- /result-screen -->
+
+  </div><!-- /content-root -->
+
+  <script>
+    const totalQuestions = 8;
+    let currentStep = 0; // 0 = intro
+    let answers = {};
+
+    function startQuiz() {
+      showStep(1);
+      document.getElementById('progress-wrap').style.display = 'block';
+    }
+
+    function showStep(n) {
+      // Hide all steps
+      document.querySelectorAll('.quiz-step').forEach(s => {
+        s.classList.remove('active');
+        const card = s.querySelector('.quiz-card');
+        if (card) card.classList.remove('fade-in');
+      });
+
+      document.getElementById('loading-screen').style.display = 'none';
+      document.getElementById('loading-screen').classList.remove('active');
+      document.getElementById('result-screen').style.display = 'none';
+      document.getElementById('result-screen').classList.remove('active');
+      document.getElementById('progress-wrap').style.display = 'block';
+
+      if (n === 'intro') {
+        document.getElementById('step-intro').classList.add('active');
+        document.getElementById('progress-wrap').style.display = 'none';
+        currentStep = 0;
+      } else {
+        const stepEl = document.getElementById('step-' + n);
+        if (stepEl) {
+          stepEl.classList.add('active');
+          const card = stepEl.querySelector('.quiz-card');
+          if (card) {
+            void card.offsetWidth; // reflow
+            card.classList.add('fade-in');
+          }
+          currentStep = n;
+          updateProgress(n);
+
+          // Restore selection if coming back
+          if (answers[n]) {
+            const opts = stepEl.querySelectorAll('.option-btn');
+            opts.forEach(btn => {
+              if (btn.dataset.score === answers[n].score &&
+                  btn.querySelector('.option-label').textContent === answers[n].label) {
+                btn.classList.add('selected');
+                document.getElementById('next-' + n).disabled = false;
+              }
+            });
+          }
+        }
+      }
+    }
+
+    function updateProgress(n) {
+      const pct = (n / totalQuestions) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-count').textContent = n + ' of ' + totalQuestions;
+    }
+
+    function selectOption(btn, stepNum, score) {
+      // Deselect siblings
+      btn.closest('.options-grid').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      answers[stepNum] = {
+        score: score,
+        label: btn.querySelector('.option-label').textContent.trim()
+      };
+
+      const nextBtn = document.getElementById('next-' + stepNum);
+      if (nextBtn) nextBtn.disabled = false;
+    }
+
+    function goNext(stepNum) {
+      if (!answers[stepNum]) return;
+      if (stepNum < totalQuestions) {
+        showStep(stepNum + 1);
+      }
+    }
+
+    function goBack() {
+      if (currentStep > 1) {
+        showStep(currentStep - 1);
+      } else {
+        // Go back to intro
+        document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step-intro').classList.add('active');
+        document.getElementById('progress-wrap').style.display = 'none';
+        currentStep = 0;
+      }
+    }
+
+    function showResults() {
+      if (!answers[8]) return;
+
+      // Hide quiz steps & progress
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('progress-wrap').style.display = 'none';
+
+      // Show loading screen
+      const loadingEl = document.getElementById('loading-screen');
+      loadingEl.style.display = 'flex';
+      loadingEl.classList.add('active');
+
+      // Compute result
+      setTimeout(() => {
+        const result = computeResult();
+        loadingEl.style.display = 'none';
+        loadingEl.classList.remove('active');
+
+        const resultScreen = document.getElementById('result-screen');
+        resultScreen.style.display = 'block';
+        resultScreen.classList.add('active');
+
+        // Hide all result cards
+        ['authority','growth','seed','notfit'].forEach(r => {
+          document.getElementById('result-' + r).style.display = 'none';
+        });
+
+        // Show the right one
+        const resultCard = document.getElementById('result-' + result);
+        if (resultCard) {
+          resultCard.style.display = 'block';
+          resultCard.classList.add('fade-in');
+        }
+
+        resultScreen.scrollIntoView({ behavior: 'smooth' });
+      }, 3200);
+    }
+
+    function computeResult() {
+      // Tally scores
+      const scores = { authority: 0, growth: 0, seed: 0, notfit: 0 };
+      for (let i = 1; i <= 8; i++) {
+        if (answers[i]) {
+          const s = answers[i].score;
+          // Q8 urgency only modifies, doesn't override
+          if (i === 8) continue;
+          if (scores[s] !== undefined) scores[s]++;
+        }
+      }
+
+      // "notfit" answers are hard overrides
+      if (scores.notfit >= 2) return 'notfit';
+      if (scores.notfit === 1 && scores.authority < 2 && scores.growth < 2) return 'notfit';
+
+      // Find winner
+      const winner = Object.entries(scores)
+        .filter(([k]) => k !== 'notfit')
+        .sort((a, b) => b[1] - a[1])[0][0];
+
+      return winner;
+    }
+  </script>
+</body>
+</html>
