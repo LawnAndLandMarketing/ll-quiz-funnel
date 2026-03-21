@@ -156,12 +156,16 @@ Result pages adapt based on Q4 (goal) and Q6/Q7 answers:
 
 ## Build Roadmap
 
-### Sprint 1 — Lead Capture + Webhook (NEXT — highest pipeline impact)
-- [ ] Email capture gate before results screen ("Where should we send your growth plan?")
-- [ ] N8N webhook fires on submit: email, all 8 answers, computed result, timestamp
-- [ ] Route lead to correct ClickUp list based on program result
-- [ ] Tag contact in GHL (Service Area Expert) with quiz result + key answers
-- [ ] Trigger automated follow-up sequence per program path
+### Sprint 1 ✅ Done — Lead Capture + Webhook
+- [x] Email capture gate before results screen ("Where should we send your growth plan?")
+- [x] Fields: First Name, Last Name, Email, Phone, Company Name
+- [x] Client-side form validation with inline error messages
+- [x] N8N webhook fires on submit: full lead info + all 8 answers + computed result + routing signals + timestamp
+- [x] Webhook is non-blocking — UX never waits on it; silent fail if it errors
+- [x] **TODO: Paste N8N webhook URL into `N8N_WEBHOOK_URL` constant in index.html**
+- [ ] N8N workflow: receive payload → create/update contact in Service Area Expert (GHL)
+- [ ] N8N workflow: tag contact in SAE with quiz result + key answer signals
+- [ ] N8N workflow: trigger automated follow-up sequence per program path (Authority / Growth / Seed / Not a Fit)
 
 ### Sprint 2 ✅ Done — Scoring Logic (v2)
 - [x] Revenue-first routing hierarchy (replaces equal-weight majority vote)
@@ -180,9 +184,9 @@ Result pages adapt based on Q4 (goal) and Q6/Q7 answers:
 - [ ] Richer personalization: echo Q7 struggle verbatim in result headline
 
 ### Sprint 4 — Retargeting Data Play
-- [ ] Segment quiz non-buyers into Meta Custom Audiences by Q7 (struggle) + Q4 (goal)
+- [ ] Segment quiz non-buyers into Meta Custom Audiences by Q7 (struggle) + Q4 (goal) — pull from SAE tags
 - [ ] Build "didn't finish quiz" retargeting audience separately
-- [ ] Run retargeting ads matched to stated pain
+- [ ] Run retargeting ads matched to stated pain point + goal
 
 ### Open Questions
 - [ ] Seed: tech stack for automated GBP posting at scale (Roshi/n8n/GHL feasibility)

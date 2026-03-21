@@ -348,9 +348,79 @@
     .result-green .result-cta-primary { background: linear-gradient(135deg, var(--ll-green) 0%, #4ab83a 100%); }
     .result-green .includes-icon { background: rgba(93,202,73,0.20); color: var(--ll-green); }
 
+    /* EMAIL CAPTURE */
+    .capture-card {
+      width: 100%; max-width: 680px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-card);
+      border-radius: 16px; padding: 48px 48px 40px;
+    }
+    .capture-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(172,231,29,0.08); border: 1px solid rgba(172,231,29,0.20);
+      border-radius: 999px; padding: 5px 14px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ll-lime); margin-bottom: 20px;
+    }
+    .capture-heading {
+      font-family: 'Rethink Sans', sans-serif;
+      font-weight: 800; font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      line-height: 1.2; color: #fff; margin-bottom: 10px;
+    }
+    .capture-sub {
+      font-size: 0.9rem; color: rgba(255,255,255,0.50);
+      line-height: 1.55; margin-bottom: 32px;
+    }
+    .capture-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.40);
+    }
+    .form-label span { color: var(--ll-lime); }
+    .form-input {
+      width: 100%; padding: 12px 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(22,163,74,0.25);
+      border-radius: 8px; color: #fff;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.25); }
+    .form-input:focus {
+      border-color: rgba(22,163,74,0.60);
+      box-shadow: 0 0 0 2px rgba(22,163,74,0.15);
+    }
+    .form-input.error { border-color: rgba(239,68,68,0.60); }
+    .form-error-msg {
+      font-size: 0.75rem; color: #ef4444; display: none; margin-top: 2px;
+    }
+    .form-error-msg.visible { display: block; }
+    .btn-submit {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, var(--ll-lime) 0%, var(--ll-green) 100%);
+      color: var(--bg-base); font-size: 1rem; font-weight: 700;
+      border: none; border-radius: 10px; padding: 15px 32px;
+      cursor: pointer; transition: opacity 0.15s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.40; pointer-events: none; }
+    .capture-privacy {
+      font-size: 0.75rem; color: rgba(255,255,255,0.28);
+      text-align: center; margin-top: 12px; line-height: 1.5;
+    }
+
     /* STEPS */
     .quiz-step { display: none; }
     .quiz-step.active { display: block; }
+
+    #capture-step { display: none; }
+    #capture-step.active { display: block; }
 
     .fade-in { animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     @keyframes fadeInUp {
@@ -651,6 +721,54 @@
       </div>
     </div>
 
+    <!-- EMAIL CAPTURE (Sprint 1) -->
+    <div id="capture-step">
+      <div class="capture-card fade-in">
+        <div class="capture-eyebrow">🎯 Almost There</div>
+        <div class="capture-heading">Where should we send<br>your growth plan?</div>
+        <div class="capture-sub">Your results are ready. Drop your info below and we'll show you exactly which program fits — and what it looks like for your business.</div>
+
+        <form class="capture-form" id="capture-form" onsubmit="submitCapture(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="f-first">First Name <span>*</span></label>
+              <input class="form-input" type="text" id="f-first" name="firstName" placeholder="John" autocomplete="given-name" required />
+              <div class="form-error-msg" id="err-first">Required</div>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-last">Last Name <span>*</span></label>
+              <input class="form-input" type="text" id="f-last" name="lastName" placeholder="Smith" autocomplete="family-name" required />
+              <div class="form-error-msg" id="err-last">Required</div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="f-email">Email <span>*</span></label>
+            <input class="form-input" type="email" id="f-email" name="email" placeholder="john@smithlandscaping.com" autocomplete="email" required />
+            <div class="form-error-msg" id="err-email">Enter a valid email address</div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="f-phone">Phone <span>*</span></label>
+            <input class="form-input" type="tel" id="f-phone" name="phone" placeholder="(813) 555-0100" autocomplete="tel" required />
+            <div class="form-error-msg" id="err-phone">Required</div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="f-company">Company Name <span>*</span></label>
+            <input class="form-input" type="text" id="f-company" name="company" placeholder="Smith Landscaping LLC" autocomplete="organization" required />
+            <div class="form-error-msg" id="err-company">Required</div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">
+            Show My Results <span>→</span>
+          </button>
+
+          <div class="capture-privacy">No spam. No cold calls without permission. We'll use this to send you your personalized growth plan and follow up if it's a fit.</div>
+        </form>
+      </div>
+    </div>
+
     <!-- LOADING -->
     <div id="loading-screen">
       <div class="loader-ring"></div>
@@ -840,10 +958,17 @@
   </div><!-- /content-root -->
 
   <script>
+    // ─── CONFIG ────────────────────────────────────────────────────────────────
+    // Set your N8N webhook URL here. Receives all quiz data + lead info.
+    const N8N_WEBHOOK_URL = '';  // TODO: paste your N8N webhook URL
+
+    // ─── STATE ─────────────────────────────────────────────────────────────────
     const totalQuestions = 8;
     let currentStep = 0;
     // answers[n] = { score, label, meta } — meta is optional extra context
     let answers = {};
+    let pendingResult = null; // computed result, stored before capture screen
+    let leadData = {};        // captured from form
 
     function startQuiz() {
       showStep(1);
@@ -860,6 +985,7 @@
       document.getElementById('loading-screen').classList.remove('active');
       document.getElementById('result-screen').style.display = 'none';
       document.getElementById('result-screen').classList.remove('active');
+      document.getElementById('capture-step').classList.remove('active');
 
       if (n === 0) {
         document.getElementById('step-intro').classList.add('active');
@@ -947,23 +1073,131 @@
       }, 1800);
     }
 
+    // Sprint 1: After Q8, show email capture before revealing results
     function showResults() {
       if (!answers[8]) return;
 
+      // Compute result now, store it — don't reveal yet
+      pendingResult = computeResult();
+
+      // Hide quiz
       document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
       document.getElementById('progress-wrap').style.display = 'none';
 
+      // Show capture screen
+      const captureEl = document.getElementById('capture-step');
+      captureEl.classList.add('active');
+      const card = captureEl.querySelector('.capture-card');
+      if (card) { void card.offsetWidth; card.classList.add('fade-in'); }
+      captureEl.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Sprint 1: Form validation + submission
+    function submitCapture(e) {
+      e.preventDefault();
+
+      const first = document.getElementById('f-first').value.trim();
+      const last  = document.getElementById('f-last').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      const company = document.getElementById('f-company').value.trim();
+
+      // Validate
+      let valid = true;
+      const fields = [
+        { val: first,   errId: 'err-first',   inputId: 'f-first',   msg: 'Required' },
+        { val: last,    errId: 'err-last',    inputId: 'f-last',    msg: 'Required' },
+        { val: email,   errId: 'err-email',   inputId: 'f-email',   msg: 'Enter a valid email address' },
+        { val: phone,   errId: 'err-phone',   inputId: 'f-phone',   msg: 'Required' },
+        { val: company, errId: 'err-company', inputId: 'f-company', msg: 'Required' },
+      ];
+      fields.forEach(f => {
+        const isValid = f.val.length > 0 && (f.inputId !== 'f-email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.val));
+        document.getElementById(f.errId).classList.toggle('visible', !isValid);
+        document.getElementById(f.inputId).classList.toggle('error', !isValid);
+        if (!isValid) valid = false;
+      });
+      if (!valid) return;
+
+      // Store lead data
+      leadData = { firstName: first, lastName: last, email, phone, company };
+
+      // Disable button + show loading state
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Preparing your results…';
+
+      // Show loading screen
+      document.getElementById('capture-step').classList.remove('active');
       const loadingEl = document.getElementById('loading-screen');
       loadingEl.style.display = 'flex';
       loadingEl.classList.add('active');
 
+      // Fire webhook (non-blocking — don't wait on it to show results)
+      fireWebhook(pendingResult);
+
+      // Show results after loading screen delay
       setTimeout(() => {
-        const result = computeResult();
         loadingEl.style.display = 'none';
         loadingEl.classList.remove('active');
-        applyPersonalization(result);
-        showResultCard(result);
+        applyPersonalization(pendingResult);
+        showResultCard(pendingResult);
       }, 3200);
+    }
+
+    // Sprint 1: Send all data to N8N webhook
+    async function fireWebhook(result) {
+      if (!N8N_WEBHOOK_URL) return; // no-op until webhook URL is configured
+
+      const payload = {
+        // Lead info
+        firstName:   leadData.firstName,
+        lastName:    leadData.lastName,
+        email:       leadData.email,
+        phone:       leadData.phone,
+        company:     leadData.company,
+
+        // Quiz result
+        result:      result,  // 'authority' | 'growth' | 'seed' | 'notfit-early' | 'notfit-industry'
+
+        // All 8 answers (label + score for each)
+        answers: {
+          q1_industry:    answers[1]?.label || '',
+          q2_crews:       answers[2]?.label || '',
+          q3_revenue:     answers[3]?.label || '',
+          q4_goal:        answers[4]?.label || '',
+          q5_website:     answers[5]?.label || '',
+          q6_ads:         answers[6]?.label || '',
+          q7_struggle:    answers[7]?.label || '',
+          q8_investment:  answers[8]?.label || '',
+        },
+
+        // Routing signals (useful for SAE tagging + follow-up segmentation)
+        signals: {
+          revenueScore:    answers[3]?.score || '',
+          crewScore:       answers[2]?.score || '',
+          investScore:     answers[8]?.score || '',
+          goalMeta:        answers[4]?.meta  || '',
+          struggleMeta:    answers[7]?.meta  || '',
+          adsMeta:         answers[6]?.meta  || '',
+        },
+
+        // Meta
+        source:     'll-quiz-funnel',
+        submittedAt: new Date().toISOString(),
+        pageUrl:     window.location.href,
+      };
+
+      try {
+        await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } catch (err) {
+        // Silent fail — never block the UX for a webhook error
+        console.warn('Webhook fire failed (non-blocking):', err);
+      }
     }
 
     function showResultCard(resultId) {
