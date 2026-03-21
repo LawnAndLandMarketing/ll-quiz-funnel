@@ -951,6 +951,9 @@
           For the best results, we'd recommend finding an agency that specializes in your specific industry — someone who understands your market the way we understand ours.
         </p>
         <a href="https://lawnandlandmarketing.com" class="result-cta-secondary" style="max-width:400px; margin: 0 auto;">Learn More About What We Do</a>
+        <button onclick="restartQuiz()" style="display:flex; align-items:center; justify-content:center; gap:6px; width:100%; max-width:400px; margin: 12px auto 0; background:transparent; border:none; color:rgba(255,255,255,0.28); font-size:0.82rem; font-family:'Inter',sans-serif; cursor:pointer; padding:8px; transition:color 0.15s;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">
+          ← Go back (made a mistake?)
+        </button>
       </div>
 
     </div><!-- /result-screen -->
@@ -1289,6 +1292,19 @@
         return answers[3] ? answers[3].score : sorted[0][0];
       }
       return sorted[0][0];
+    }
+
+    function restartQuiz() {
+      answers = {};
+      pendingResult = null;
+      leadData = {};
+      document.getElementById('result-screen').style.display = 'none';
+      document.getElementById('result-screen').classList.remove('active');
+      // Clear all selections
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      document.querySelectorAll('.btn-next').forEach(b => b.disabled = true);
+      showStep(1);
+      document.getElementById('progress-wrap').style.display = 'block';
     }
 
     function applyPersonalization(result) {
