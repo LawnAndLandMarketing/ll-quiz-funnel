@@ -1,0 +1,239 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="L&amp;L Quiz Funnel — Logic Map" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#ACE71D;fontFamily=Helvetica;" vertex="1" parent="1">
+      <mxGeometry x="477" y="30" width="700" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="subtitle" value="End-to-end routing, result paths, and lead capture flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#888888;" vertex="1" parent="1">
+      <mxGeometry x="477" y="68" width="700" height="24" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- ENTRY                          -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="start" value="&lt;b&gt;ENTRY&lt;/b&gt;&lt;br&gt;Intro Screen&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;'Find Your Growth Path in 8 Questions'&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a3a0a;strokeColor=#ACE71D;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="677" y="120" width="300" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- Q1: INDUSTRY GATE              -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="q1" value="&lt;b&gt;Q1 — INDUSTRY GATE 🔒&lt;/b&gt;&lt;br&gt;Does your company provide green industry services?&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Lawn care · Landscaping · Hardscaping · Tree · Irrigation · Outdoor living&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#2d2600;strokeColor=#eab308;strokeWidth=2;fontColor=#ffffff;fontSize=11;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="627" y="240" width="400" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- Q1 → Wrong Industry exit -->
+    <mxCell id="notfit_industry" value="❌ WRONG INDUSTRY EXIT&lt;br&gt;&lt;b&gt;Not a Match&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Clean exit · No resources&lt;br&gt;'Go back (made a mistake?)' link&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2d0a0a;strokeColor=#ef4444;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1160" y="260" width="240" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- Q2–Q7 BLOCK                    -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="q2" value="&lt;b&gt;Q2 — Crews&lt;/b&gt;&lt;br&gt;How many trucks/crews?&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Supporting signal only&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#555555;strokeWidth=1;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="677" y="400" width="300" height="60" as="geometry" />
+    </mxCell>
+
+    <mxCell id="q3" value="&lt;b&gt;Q3 — REVENUE ⭐ PRIMARY GATE&lt;/b&gt;&lt;br&gt;What's your annual revenue?&lt;br&gt;&lt;font color='#eab308' style='font-size:10px'&gt;$750K+ → Authority · $200K–$750K → Growth · $100K–$200K → Seed · Under $100K → Not a Fit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2d2600;strokeColor=#eab308;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="627" y="510" width="400" height="70" as="geometry" />
+    </mxCell>
+
+    <mxCell id="q4" value="&lt;b&gt;Q4 — Growth Goal&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Aspirational · Copy context only&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#555555;strokeWidth=1;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="677" y="630" width="300" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="q5" value="&lt;b&gt;Q5 — Website Situation&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Digital maturity · Copy context only&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#555555;strokeWidth=1;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="677" y="700" width="300" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="q6" value="&lt;b&gt;Q6 — Paid Ads Experience&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Context · Affects result page copy&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#555555;strokeWidth=1;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="677" y="770" width="300" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="q7" value="&lt;b&gt;Q7 — Biggest Struggle&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Pain point · Echoed verbatim on result page&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#555555;strokeWidth=1;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="677" y="840" width="300" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- Q8: INVESTMENT GATE            -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="q8" value="&lt;b&gt;Q8 — INVESTMENT COMMITMENT 🔒 (Floor Gate)&lt;/b&gt;&lt;br&gt;What monthly investment feels right?&lt;br&gt;&lt;font color='#eab308' style='font-size:10px'&gt;'Can't commit' → Not a Fit · $500–$1K → Seed signal · $1K–$2.5K → Growth signal · $2.5K+ → Authority signal&lt;br&gt;NOTE: Never overrides revenue-based tier&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#2d2600;strokeColor=#eab308;strokeWidth=2;fontColor=#ffffff;fontSize=11;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="627" y="930" width="400" height="110" as="geometry" />
+    </mxCell>
+
+    <!-- Q8 → Won't invest exit -->
+    <mxCell id="notfit_invest" value="💡 NOT READY TO INVEST&lt;br&gt;&lt;b&gt;Priorities Issue&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;'The business is ready, timing might not be'&lt;br&gt;3 tips · Leave door open&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2d0a0a;strokeColor=#ef4444;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1160" y="950" width="240" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- ROUTING ENGINE                 -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="routing" value="&lt;b&gt;⭐ REVENUE-FIRST ROUTING ENGINE&lt;/b&gt;&lt;br&gt;Q3 Revenue = Primary Tier Assignment&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Q2 Crews = supporting context · Budget = sales conversation, not upgrade&lt;br&gt;5 edge cases wired · Tie-break = Q3 revenue&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a3a0a;strokeColor=#ACE71D;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="627" y="1100" width="400" height="70" as="geometry" />
+    </mxCell>
+
+    <!-- Under $100K → Not a Fit Too Early -->
+    <mxCell id="notfit_early" value="💡 TOO EARLY&lt;br&gt;&lt;b&gt;Under $100K Revenue&lt;/b&gt;&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;3 free moves (GBP · reviews · LSA)&lt;br&gt;'Come back at $100K' invite&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2d0a0a;strokeColor=#ef4444;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="1160" y="1110" width="240" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- CAPTURE GATE (Sprint 1)        -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="capture" value="&lt;b&gt;📋 LEAD CAPTURE FORM (Sprint 1)&lt;/b&gt;&lt;br&gt;'Where should we send your growth plan?'&lt;br&gt;&lt;font color='#60a5fa' style='font-size:10px'&gt;First · Last · Email · Phone · Company&lt;br&gt;Authority / Growth / Seed ONLY · Not-a-fit paths skip this&lt;br&gt;⚠️ Needs N8N webhook URL to activate&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0a1a2d;strokeColor=#3b82f6;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="617" y="1240" width="420" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- LOADING SCREEN                 -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="loading" value="&lt;b&gt;⏳ LOADING SCREEN (3.2s)&lt;/b&gt;&lt;br&gt;Testimonial + 97% retention stat&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;N8N webhook fires here (non-blocking)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#555555;strokeWidth=1;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="677" y="1390" width="300" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- N8N node -->
+    <mxCell id="n8n" value="&lt;b&gt;N8N WEBHOOK&lt;/b&gt;&lt;br&gt;Receives full payload&lt;br&gt;&lt;font color='#a78bfa' style='font-size:10px'&gt;Name · Email · Phone · Company&lt;br&gt;Result · All 8 answers · Routing signals&lt;br&gt;Timestamp · Source · Page URL&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a0a2d;strokeColor=#8b5cf6;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="1160" y="1390" width="240" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- SAE node -->
+    <mxCell id="sae" value="&lt;b&gt;SERVICE AREA EXPERT (SAE)&lt;/b&gt;&lt;br&gt;Create/update contact&lt;br&gt;&lt;font color='#a78bfa' style='font-size:10px'&gt;Tag by result · Trigger follow-up sequence&lt;br&gt;Authority / Growth / Seed sequences&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a0a2d;strokeColor=#8b5cf6;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="1160" y="1520" width="240" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- RESULT PAGES                   -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="res_authority" value="&lt;b&gt;⚡ AUTHORITY&lt;/b&gt;&lt;br&gt;$2,400/mo + $2,000 setup&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Apply CTA · Book Call CTA&lt;br&gt;Personalization callout&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a3a0a;strokeColor=#ACE71D;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="160" y="1550" width="190" height="80" as="geometry" />
+    </mxCell>
+
+    <mxCell id="res_growth" value="&lt;b&gt;🚀 GROWTH&lt;/b&gt;&lt;br&gt;$1,200/mo + $1,500 setup&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Apply CTA · Book Call CTA&lt;br&gt;Graduation path note&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0a2d1a;strokeColor=#5DCA49;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="390" y="1550" width="190" height="80" as="geometry" />
+    </mxCell>
+
+    <mxCell id="res_seed" value="&lt;b&gt;🌱 SEED&lt;/b&gt;&lt;br&gt;$697/mo + $997 setup&lt;br&gt;&lt;font color='#888888' style='font-size:10px'&gt;Join Waitlist CTA&lt;br&gt;Graduation at $250K&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0a2d20;strokeColor=#16a34a;strokeWidth=2;fontColor=#ffffff;fontSize=11;arcSize=12;" vertex="1" parent="1">
+      <mxGeometry x="620" y="1550" width="190" height="80" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- CONNECTORS                     -->
+    <!-- ══════════════════════════════ -->
+
+    <!-- Start → Q1 -->
+    <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="start" target="q1" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q1 → Q2 (Yes) -->
+    <mxCell id="e2" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#ACE71D;strokeWidth=2;fontColor=#ACE71D;fontStyle=1;fontSize=10;" edge="1" source="q1" target="q2" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q1 → Wrong Industry (No) -->
+    <mxCell id="e3" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ef4444;strokeWidth=2;fontColor=#ef4444;fontStyle=1;fontSize=10;" edge="1" source="q1" target="notfit_industry" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q2 → Q3 -->
+    <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="q2" target="q3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q3 → Q4 -->
+    <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="q3" target="q4" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q4 → Q5 -->
+    <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="q4" target="q5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q5 → Q6 -->
+    <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="q5" target="q6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q6 → Q7 -->
+    <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="q6" target="q7" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q7 → Q8 -->
+    <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="q7" target="q8" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q8 → Routing (Commits) -->
+    <mxCell id="e10" value="Commits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#ACE71D;strokeWidth=2;fontColor=#ACE71D;fontStyle=1;fontSize=10;" edge="1" source="q8" target="routing" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q8 → Won't invest exit -->
+    <mxCell id="e11" value="Can't commit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ef4444;strokeWidth=2;fontColor=#ef4444;fontStyle=1;fontSize=10;" edge="1" source="q8" target="notfit_invest" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Q3 → Under $100K exit -->
+    <mxCell id="e_rev_notfit" value="Under $100K" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ef4444;strokeWidth=2;fontColor=#ef4444;fontStyle=1;fontSize=10;dashed=1;" edge="1" source="q3" target="notfit_early" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Routing → Capture -->
+    <mxCell id="e12" value="Authority / Growth / Seed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#ACE71D;strokeWidth=2;fontColor=#ACE71D;fontStyle=1;fontSize=10;" edge="1" source="routing" target="capture" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Capture → Loading -->
+    <mxCell id="e13" value="Submit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#3b82f6;strokeWidth=2;fontColor=#3b82f6;fontStyle=1;fontSize=10;" edge="1" source="capture" target="loading" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Loading → N8N -->
+    <mxCell id="e14" value="Webhook fires" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#8b5cf6;strokeWidth=2;fontColor=#8b5cf6;fontStyle=1;fontSize=10;dashed=1;" edge="1" source="loading" target="n8n" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- N8N → SAE -->
+    <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#8b5cf6;strokeWidth=2;" edge="1" source="n8n" target="sae" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Loading → Authority -->
+    <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#ACE71D;strokeWidth=2;" edge="1" source="loading" target="res_authority" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Loading → Growth -->
+    <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#5DCA49;strokeWidth=2;" edge="1" source="loading" target="res_growth" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Loading → Seed -->
+    <mxCell id="e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#16a34a;strokeWidth=2;" edge="1" source="loading" target="res_seed" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════ -->
+    <!-- SWIM LANE LABELS               -->
+    <!-- ══════════════════════════════ -->
+    <mxCell id="lane1" value="GATES" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1;fontColor=#eab308;rotation=-90;" vertex="1" parent="1">
+      <mxGeometry x="110" y="280" width="60" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lane2" value="QUESTIONS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1;fontColor=#888888;rotation=-90;" vertex="1" parent="1">
+      <mxGeometry x="110" y="700" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lane3" value="LEAD CAPTURE" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1;fontColor=#3b82f6;rotation=-90;" vertex="1" parent="1">
+      <mxGeometry x="110" y="1280" width="90" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="lane4" value="RESULTS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=1;fontColor=#ACE71D;rotation=-90;" vertex="1" parent="1">
+      <mxGeometry x="110" y="1580" width="60" height="20" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
