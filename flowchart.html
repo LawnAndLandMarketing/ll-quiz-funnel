@@ -462,19 +462,11 @@
           </div>
         </div>
 
-        <div class="blocker-item">
-          <div class="blocker-item-badge">⏳ Sprint 3</div>
+        <div class="blocker-item" style="background:rgba(172,231,29,0.05); border-color:rgba(172,231,29,0.25);">
+          <div class="blocker-item-badge" style="background:rgba(172,231,29,0.15); border-color:rgba(172,231,29,0.35); color:#ACE71D;">✅ Sprint 3 Done</div>
           <div class="blocker-item-text">
-            <strong>Drop-off tracking not instrumented</strong> — No analytics on which question people abandon. Can't optimize what you can't measure.<br>
-            <span class="action">→ Add per-question event tracking (Google Analytics / Meta Pixel)</span>
-          </div>
-        </div>
-
-        <div class="blocker-item">
-          <div class="blocker-item-badge">⏳ Sprint 3</div>
-          <div class="blocker-item-text">
-            <strong>No urgency/scarcity before loading screen</strong> — Per quiz funnel best practice: add a micro-commitment or scarcity element after Q8 before the form.<br>
-            <span class="action">→ Sprint 3 build</span>
+            <strong>Conversion optimization shipped</strong> — Drop-off tracking fires on every step (N8N endpoint: <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">/ll-quiz-tracking</code>). Breather slide inserted after Q4 (stats: $3M+, 97% retention, 100% green industry). Urgency strip on capture form (pseudo-dynamic applicant count by day/hour).<br>
+            <span style="color:rgba(172,231,29,0.60); font-size:0.75rem; display:inline-block; margin-top:4px;">Deployed March 22, 2026.</span>
           </div>
         </div>
 
@@ -568,6 +560,11 @@
           <div class="node-label">Q4</div>
           <div class="node-title">Growth Goal</div>
           <div class="node-sub">Copy context</div>
+        </div>
+        <div class="node-box" style="min-width:140px; padding:10px 14px; background:rgba(172,231,29,0.06); border:1px solid rgba(172,231,29,0.22);">
+          <div class="node-label" style="color:var(--ll-lime);">✅ Breather</div>
+          <div class="node-title" style="font-size:0.78rem;">Stats Slide</div>
+          <div class="node-sub">$3M+ · 97% retention · 100% green industry — pattern interrupt after Q4</div>
         </div>
         <div class="node-box node-question" style="min-width:130px; padding:10px 14px;">
           <div class="node-label">Q5</div>
@@ -677,6 +674,7 @@
             <div style="width:8px;height:8px;border-radius:50%;background:#ACE71D;flex-shrink:0;"></div>
             <div style="font-size:0.72rem; font-weight:700; color:#ACE71D;">LIVE — webhook firing to N8N · contacts landing in SAE</div>
           </div>
+          <div style="font-size:0.68rem; color:rgba(172,231,29,0.55); margin-top:6px;">✅ Sprint 3: Urgency strip shown above form — pseudo-dynamic applicant count</div>
         </div>
       </div>
 
@@ -807,11 +805,11 @@
             <div style="font-size:0.78rem; color:rgba(255,255,255,0.70);">Revenue-First Routing</div>
             <div style="font-size:0.68rem; color:rgba(172,231,29,0.50); margin-top:3px;">All 5 edge cases wired</div>
           </div>
-          <!-- Sprint 3: pending -->
-          <div style="background:rgba(234,179,8,0.05); border:1px solid rgba(234,179,8,0.20); border-radius:8px; padding:12px 16px; min-width:180px; text-align:center;">
-            <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#fbbf24; margin-bottom:4px;">⏳ Sprint 3 — Not Started</div>
-            <div style="font-size:0.78rem; color:rgba(255,255,255,0.50);">Conversion Optimization</div>
-            <div style="font-size:0.68rem; color:rgba(255,255,255,0.25); margin-top:3px; line-height:1.4;">Drop-off tracking<br>Breather slide after Q4<br>Urgency before form</div>
+          <!-- Sprint 3: done -->
+          <div style="background:rgba(172,231,29,0.08); border:1px solid rgba(172,231,29,0.25); border-radius:8px; padding:12px 16px; min-width:180px; text-align:center;">
+            <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:var(--ll-lime); margin-bottom:4px;">✅ Sprint 3 — Live</div>
+            <div style="font-size:0.78rem; color:rgba(255,255,255,0.70);">Conversion Optimization</div>
+            <div style="font-size:0.68rem; color:rgba(172,231,29,0.50); margin-top:3px; line-height:1.4;">Drop-off tracking ✅<br>Breather slide after Q4 ✅<br>Urgency strip on capture ✅</div>
           </div>
           <!-- Sprint 4: pending, depends on S1 -->
           <div style="background:rgba(234,179,8,0.05); border:1px solid rgba(234,179,8,0.20); border-radius:8px; padding:12px 16px; min-width:180px; text-align:center;">
@@ -826,7 +824,7 @@
 
     <!-- Footer -->
     <div style="text-align:center; margin-top:64px; font-size:0.72rem; color:rgba(255,255,255,0.18);">
-      Lawn & Land Marketing · L&L Quiz Funnel · Generated March 21, 2026 · v3
+      Lawn & Land Marketing · L&L Quiz Funnel · Updated March 22, 2026 · v4
     </div>
 
   </div><!-- /page -->
