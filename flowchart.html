@@ -438,35 +438,19 @@
       </div>
       <div class="blocker-list">
 
-        <div class="blocker-item" style="background:rgba(172,231,29,0.05); border-color:rgba(172,231,29,0.25);">
-          <div class="blocker-item-badge" style="background:rgba(172,231,29,0.15); border-color:rgba(172,231,29,0.35); color:#ACE71D;">✅ Sprint 1 Done</div>
-          <div class="blocker-item-text">
-            <strong>Lead capture + N8N webhook + all 4 SAE follow-up sequences fully live</strong> — Form collects name, email, phone, company. N8N workflow (ID: FFNNEzoY5KevT3v9) routes to SAE and tags <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-authority</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-growth</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-seed</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">seed-waitlist</code> in SAE.<br>
-            <span style="color:rgba(172,231,29,0.60); font-size:0.75rem; display:inline-block; margin-top:4px;">All 4 follow-up sequences live in SAE as of March 22, 2026.</span>
-          </div>
-        </div>
-
         <div class="blocker-item">
-          <div class="blocker-item-badge">🟡 Live URLs</div>
+          <div class="blocker-item-badge">🟡 CTA — Book a Call</div>
           <div class="blocker-item-text">
-            <strong>CTA links use placeholder URLs</strong> — Apply, Book a Call, Seed Waitlist, and Free Resources buttons all point to lawnandlandmarketing.com placeholders.<br>
-            <span class="action">→ Confirm real destination URLs for each CTA and update index.html</span>
+            <strong>Authority + Growth "Book a Free Strategy Call" → lawnandlandmarketing.com/grow</strong> — This currently resolves to the homepage (same content, different slug). Confirm if this is the intended destination or if there's a dedicated apply/booking page to link instead.<br>
+            <span class="action">→ Confirm intended URL and update index.html if needed</span>
           </div>
         </div>
 
         <div class="blocker-item">
           <div class="blocker-item-badge">🟡 Content</div>
           <div class="blocker-item-text">
-            <strong>Loading screen testimonial is placeholder</strong> — Currently using a generic quote. Replace with a real client testimonial (name, company, specific result).<br>
-            <span class="action">→ Pick best client quote → update loading screen copy in index.html</span>
-          </div>
-        </div>
-
-        <div class="blocker-item" style="background:rgba(172,231,29,0.05); border-color:rgba(172,231,29,0.25);">
-          <div class="blocker-item-badge" style="background:rgba(172,231,29,0.15); border-color:rgba(172,231,29,0.35); color:#ACE71D;">✅ Sprint 3 Done</div>
-          <div class="blocker-item-text">
-            <strong>Conversion optimization shipped</strong> — Drop-off tracking fires on every step (N8N endpoint: <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">/ll-quiz-tracking</code>). Breather slide inserted after Q4 (stats: $3M+, 97% retention, 100% green industry). Urgency strip on capture form (pseudo-dynamic applicant count by day/hour).<br>
-            <span style="color:rgba(172,231,29,0.60); font-size:0.75rem; display:inline-block; margin-top:4px;">Deployed March 22, 2026.</span>
+            <strong>Loading screen testimonial is a placeholder</strong> — Currently shows a generic quote attributed to "Chris M., Olson Outdoors." Replace with a real verified client quote.<br>
+            <span class="action">→ Pick best real client quote → update loading screen copy in index.html</span>
           </div>
         </div>
 
@@ -474,7 +458,7 @@
           <div class="blocker-item-badge">⏳ Sprint 4</div>
           <div class="blocker-item-text">
             <strong>Meta retargeting audiences not built</strong> — Quiz non-buyer data sitting in SAE is not yet flowing into Meta Custom Audiences segmented by struggle/goal.<br>
-            <span class="action">→ Sprint 4 build (depends on Sprint 1 N8N + SAE tagging being live first)</span>
+            <span class="action">→ Sprint 4 build</span>
           </div>
         </div>
 
@@ -805,7 +789,7 @@
           <div style="background:rgba(172,231,29,0.08); border:1px solid rgba(172,231,29,0.25); border-radius:8px; padding:12px 16px; min-width:180px; text-align:center;">
             <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:var(--ll-lime); margin-bottom:4px;">✅ Sprint 1 — Live</div>
             <div style="font-size:0.78rem; color:rgba(255,255,255,0.70);">Lead Capture + Webhook</div>
-            <div style="font-size:0.68rem; color:rgba(172,231,29,0.50); margin-top:3px; line-height:1.4;">Form ✅ · N8N ✅ · SAE tags ✅<br><span style="color:rgba(255,255,255,0.30);">Follow-up sequences pending</span></div>
+            <div style="font-size:0.68rem; color:rgba(172,231,29,0.50); margin-top:3px; line-height:1.4;">Form ✅ · N8N ✅ · SAE tags ✅<br>All 4 follow-up sequences ✅</div>
           </div>
           <!-- Sprint 2: done -->
           <div style="background:rgba(172,231,29,0.08); border:1px solid rgba(172,231,29,0.25); border-radius:8px; padding:12px 16px; min-width:160px; text-align:center;">
@@ -832,7 +816,7 @@
 
     <!-- Footer -->
     <div style="text-align:center; margin-top:64px; font-size:0.72rem; color:rgba(255,255,255,0.18);">
-      Lawn & Land Marketing · L&L Quiz Funnel · Updated March 22, 2026 · v5
+      Lawn & Land Marketing · L&L Quiz Funnel · Updated March 22, 2026 · v6
     </div>
 
   </div><!-- /page -->
