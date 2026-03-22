@@ -441,8 +441,8 @@
         <div class="blocker-item" style="background:rgba(172,231,29,0.05); border-color:rgba(172,231,29,0.25);">
           <div class="blocker-item-badge" style="background:rgba(172,231,29,0.15); border-color:rgba(172,231,29,0.35); color:#ACE71D;">✅ Sprint 1 Done</div>
           <div class="blocker-item-text">
-            <strong>Lead capture + N8N webhook fully live</strong> — Form collects name, email, phone, company. N8N workflow (ID: FFNNEzoY5KevT3v9) routes to SAE and tags <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-authority</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-growth</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-seed</code> in SAE location 🌿 Lawn &amp; Land Marketing.<br>
-            <span style="color:rgba(172,231,29,0.60); font-size:0.75rem; display:inline-block; margin-top:4px;">⚠️ Follow-up sequences per program still need to be built in SAE — next step.</span>
+            <strong>Lead capture + N8N webhook + all 4 SAE follow-up sequences fully live</strong> — Form collects name, email, phone, company. N8N workflow (ID: FFNNEzoY5KevT3v9) routes to SAE and tags <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-authority</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-growth</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">quiz-seed</code> / <code style="background:rgba(255,255,255,0.08); padding:1px 6px; border-radius:4px;">seed-waitlist</code> in SAE.<br>
+            <span style="color:rgba(172,231,29,0.60); font-size:0.75rem; display:inline-block; margin-top:4px;">All 4 follow-up sequences live in SAE as of March 22, 2026.</span>
           </div>
         </div>
 
@@ -709,10 +709,10 @@
             <div class="node-sub">+$2,000 setup<br>Apply / Book Call</div>
           </div>
           <div style="width:2px; height:20px; background:rgba(172,231,29,0.20); margin:4px auto;"></div>
-          <div class="node-box node-sae" style="min-width:140px;">
-            <div class="node-label">SAE</div>
+          <div class="node-box node-sae" style="min-width:160px;">
+            <div class="node-label">SAE ✅</div>
             <div class="node-title">Tag: quiz-authority</div>
-            <div class="node-sub">+ Follow-up seq.</div>
+            <div class="node-sub">6-step sequence live<br>3 SMS + 3 email over 7 days</div>
           </div>
         </div>
 
@@ -723,10 +723,10 @@
             <div class="node-sub">+$1,500 setup<br>Apply / Book Call</div>
           </div>
           <div style="width:2px; height:20px; background:rgba(93,202,73,0.20); margin:4px auto;"></div>
-          <div class="node-box node-sae" style="min-width:140px;">
-            <div class="node-label">SAE</div>
+          <div class="node-box node-sae" style="min-width:160px;">
+            <div class="node-label">SAE ✅</div>
             <div class="node-title">Tag: quiz-growth</div>
-            <div class="node-sub">+ Follow-up seq.</div>
+            <div class="node-sub">6-step sequence live<br>3 SMS + 3 email over 7 days</div>
           </div>
         </div>
 
@@ -737,10 +737,18 @@
             <div class="node-sub">+$997 setup<br>Join Waitlist</div>
           </div>
           <div style="width:2px; height:20px; background:rgba(22,163,74,0.20); margin:4px auto;"></div>
-          <div class="node-box node-sae" style="min-width:140px;">
-            <div class="node-label">SAE</div>
-            <div class="node-title">Tag: quiz-seed</div>
-            <div class="node-sub">+ Follow-up seq.</div>
+          <!-- Seed splits into two SAE paths -->
+          <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+            <div class="node-box node-sae" style="min-width:150px; max-width:170px;">
+              <div class="node-label">SAE ✅</div>
+              <div class="node-title">Tag: quiz-seed</div>
+              <div class="node-sub">4-step nurture<br>No waitlist yet → nudge to join</div>
+            </div>
+            <div class="node-box node-sae" style="min-width:150px; max-width:170px;">
+              <div class="node-label">SAE ✅</div>
+              <div class="node-title">Tag: seed-waitlist</div>
+              <div class="node-sub">2-step welcome<br>Waitlist joined → Matt manual follow-up</div>
+            </div>
           </div>
         </div>
 
@@ -786,7 +794,7 @@
         <div style="font-size:0.78rem; color:rgba(255,255,255,0.50); line-height:1.8;">
           Name · Email · Phone · Company · <strong style="color:rgba(255,255,255,0.75);">Result</strong> · All 8 answers (label + score) · Revenue tier · Crew count · Investment tier · Goal · Struggle · Ads experience · Source · Timestamp · Page URL
         </div>
-        <div style="margin-top:10px; font-size:0.72rem; color:rgba(139,92,246,0.60);">→ SAE contact create/update → Tag: quiz-authority / quiz-growth / quiz-seed → Trigger follow-up sequence per program</div>
+        <div style="margin-top:10px; font-size:0.72rem; color:rgba(139,92,246,0.60);">→ SAE contact create/update → Tag: quiz-authority / quiz-growth / quiz-seed / seed-waitlist → Trigger follow-up sequence per program ✅ All 4 live</div>
       </div>
 
       <!-- Sprints remaining -->
@@ -824,7 +832,7 @@
 
     <!-- Footer -->
     <div style="text-align:center; margin-top:64px; font-size:0.72rem; color:rgba(255,255,255,0.18);">
-      Lawn & Land Marketing · L&L Quiz Funnel · Updated March 22, 2026 · v4
+      Lawn & Land Marketing · L&L Quiz Funnel · Updated March 22, 2026 · v5
     </div>
 
   </div><!-- /page -->
