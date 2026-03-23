@@ -7,6 +7,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '235509009483991');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=235509009483991&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -439,7 +453,7 @@
       .trust-strip { gap: 16px; }
     }
   </style>
-<!-- cache-bust: sync-preview-seed-copy -->
+<!-- cache-bust: meta-pixel -->
 </head>
 <body>
   <div class="grain-overlay" aria-hidden="true"></div>
@@ -1293,6 +1307,14 @@
 
       trackEvent('lead_captured', { result: pendingResult, company: company });
 
+      // Meta Pixel — Lead event on form submit
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Quiz Funnel — ' + (pendingResult || 'unknown'),
+          content_category: 'll-quiz-funnel',
+        });
+      }
+
       // Disable button + show loading state
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
@@ -1389,6 +1411,15 @@
         card.classList.add('fade-in');
       }
       trackEvent('result_shown', { result: resultId });
+
+      // Meta Pixel — ViewContent on result page shown
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+          content_name: 'Quiz Result — ' + resultId,
+          content_category: 'll-quiz-funnel',
+        });
+      }
+
       resultScreen.scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -1451,6 +1482,17 @@
 
     function openSeedWaitlist(e) {
       e.preventDefault();
+
+      // Meta Pixel — InitiateCheckout on seed waitlist click
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Seed Program Waitlist',
+          content_category: 'll-quiz-funnel',
+          value: 697,
+          currency: 'USD',
+        });
+      }
+
       const base = 'https://api.leadconnectorhq.com/widget/form/mn17wtd9UDgkSArUmeoh';
       const params = new URLSearchParams();
       if (leadData.firstName)  params.set('first_name',   leadData.firstName);
