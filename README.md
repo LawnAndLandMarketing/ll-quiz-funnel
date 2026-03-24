@@ -68,19 +68,13 @@
 - GA4 role: Viewer on property `529853510`
 - Vercel env vars: `GA4_PROPERTY_ID` + `GOOGLE_SA_KEY` (encrypted)
 
-### ⚠️ Pending: Register Custom Dimensions in GA4
+### Custom Dimensions
 
-The `result_type` parameter (authority/growth/seed/notfit) is being passed with `quiz_result` events but **cannot be queried via the Data API until it's registered as a custom dimension in GA4.**
+| Dimension | Scope | Parameter | Registered | Status |
+|-----------|-------|-----------|------------|--------|
+| `result_type` | Event | `result_type` | Mar 24, 2026 | ✅ Active — queried in dashboard |
 
-**To enable full result breakdown in the analytics dashboard:**
-1. Go to **analytics.google.com → Admin → Custom definitions → Custom dimensions**
-2. Click **Create custom dimensions**
-3. Dimension name: `result_type`
-4. Scope: **Event**
-5. Event parameter: `result_type`
-6. Click **Save**
-
-Once registered, wait 24–48h for data to populate, then update `/api/ga4.js` in the `getResults()` function to use `{ name: 'customEvent:result_type' }` as a dimension in the `quiz_result` report. This will unlock the Authority/Growth/Seed/Not-a-Fit breakdown chart in the dashboard.
+The `result_type` dimension is registered and the dashboard queries it via `customEvent:result_type` on `quiz_result` events. Data populates going forward from Mar 24, 2026.
 
 ---
 
@@ -252,7 +246,7 @@ Create Meta Custom Audiences from SAE tags:
 
 | Item | Priority | Owner |
 |------|----------|-------|
-| Register `result_type` custom dimension in GA4 | High | Matt (2 min task — see Analytics section above) |
+| ~~Register `result_type` custom dimension in GA4~~ | ~~High~~ | ✅ Done Mar 24, 2026 |
 | Launch quiz Meta campaign | When ready | Matt (unpause campaign ID `120241640444540175`) |
 | Sprint 4: Meta retargeting audiences from SAE tags | Medium | Kai |
 | CAPI (Conversion API) server-side backup for pixel | Medium | Kai |
