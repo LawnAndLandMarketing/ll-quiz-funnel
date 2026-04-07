@@ -299,3 +299,15 @@ Digital marketing agency exclusively for lawn & landscape companies ($750K–$9M
 7. Strategy call framing = discovery only, no pitch — deeper dive scheduled if fit
 
 **Brand voice:** Direct, confident, green industry native. No fluff. "Leads, jobs booked, ROI" language only.
+
+---
+
+## Repository Relationship
+
+- **Canonical product:** L&L Growth Path Quiz Funnel
+- **This repo is the source of truth**
+- **Live URL:** https://ll-quiz-funnel.vercel.app
+- **Related repos:** None directly — feeds qualified leads into GHL
+- **Depends on:** Vercel (hosting), GA4, Meta Pixel, GoHighLevel (lead routing)
+
+> **⚠️ Naming note:** Was `ll-quiz-funnel` — renamed to `quiz-funnel` April 2026.
